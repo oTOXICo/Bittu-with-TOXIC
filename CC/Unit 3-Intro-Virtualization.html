@@ -1,0 +1,1291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Data Management and Security in Cloud Computing</title>
+    <meta name="author" content="Sudha" />
+    <style type="text/css">
+      * {
+        margin: 10%;
+        padding: 0;
+        text-indent: 0;
+      }
+      .s1 {
+        color: black;
+        font-family: Calibri, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 44pt;
+      }
+      .s2 {
+        color: #888;
+        font-family: "Times New Roman", serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      .s3 {
+        color: #1e1c11;
+        font-family: Calibri, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 36pt;
+      }
+      .p,
+      p {
+        color: black;
+        font-family: Calibri, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 20pt;
+        margin: 0pt;
+      }
+      .s4 {
+        color: black;
+        font-family: "Times New Roman", serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 14pt;
+        vertical-align: -4pt;
+      }
+      .s5 {
+        color: black;
+        font-family: Calibri, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 36pt;
+      }
+      .s6 {
+        color: black;
+        font-family: Calibri, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 18pt;
+      }
+      h2 {
+        color: black;
+        font-family: Calibri, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 18pt;
+      }
+      h1 {
+        color: black;
+        font-family: Calibri, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 20pt;
+      }
+      .s7 {
+        color: black;
+        font-family: Calibri, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 16pt;
+      }
+      .s8 {
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: italic;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 16pt;
+      }
+      h3 {
+        color: black;
+        font-family: Calibri, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 16pt;
+      }
+      .s9 {
+        color: black;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+      }
+      li {
+        display: block;
+      }
+      #l1 {
+        padding-left: 0pt;
+      }
+      #l1 > li > *:first-child:before {
+        content: "• ";
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 20pt;
+      }
+      li {
+        display: block;
+      }
+      #l2 {
+        padding-left: 0pt;
+      }
+      #l2 > li > *:first-child:before {
+        content: "• ";
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 20pt;
+      }
+      li {
+        display: block;
+      }
+      #l3 {
+        padding-left: 0pt;
+      }
+      #l3 > li > *:first-child:before {
+        content: "• ";
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+      }
+      #l4 {
+        padding-left: 0pt;
+      }
+      #l4 > li > *:first-child:before {
+        content: "• ";
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 20pt;
+      }
+      li {
+        display: block;
+      }
+      #l5 {
+        padding-left: 0pt;
+      }
+      #l5 > li > *:first-child:before {
+        content: "• ";
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+      }
+      #l6 {
+        padding-left: 0pt;
+      }
+      #l6 > li > *:first-child:before {
+        content: "• ";
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 16pt;
+      }
+    </style>
+  </head>
+  <body>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p
+      class="s1"
+      style="
+        padding-left: 152pt;
+        text-indent: 0pt;
+        line-height: 50pt;
+        text-align: center;
+      "
+    >
+      16MDSE16
+    </p>
+    <p
+      class="s1"
+      style="
+        padding-left: 152pt;
+        text-indent: 0pt;
+        line-height: 63pt;
+        text-align: center;
+      "
+    >
+      CLOUD COMPUTING
+    </p>
+    <p
+      class="s1"
+      style="
+        padding-left: 152pt;
+        text-indent: 0pt;
+        line-height: 63pt;
+        text-align: center;
+      "
+    >
+      (Virtualization)
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p
+      class="s2"
+      style="
+        padding-top: 35pt;
+        padding-left: 147pt;
+        text-indent: 0pt;
+        text-align: center;
+      "
+    >
+      C:\1-SudhaCIT\Cloud-2018
+    </p>
+    <p
+      class="s3"
+      style="
+        padding-left: 147pt;
+        text-indent: 0pt;
+        line-height: 41pt;
+        text-align: center;
+      "
+    >
+      Outline
+    </p>
+    <ul id="l1">
+      <li>
+        <p
+          style="
+            padding-top: 27pt;
+            padding-left: 68pt;
+            text-indent: -27pt;
+            text-align: left;
+          "
+        >
+          What is Virtualization?
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 12pt;
+            padding-left: 68pt;
+            text-indent: -27pt;
+            text-align: left;
+          "
+        >
+          Hypervisor
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 11pt;
+            padding-left: 68pt;
+            text-indent: -27pt;
+            text-align: left;
+          "
+        >
+          Type 1 and Type 2 Hypervisor
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 12pt;
+            padding-left: 68pt;
+            text-indent: -27pt;
+            text-align: left;
+          "
+        >
+          Full Virtualization and Para Virtualization
+        </p>
+      </li>
+    </ul>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p
+      class="s2"
+      style="
+        padding-top: 4pt;
+        padding-left: 278pt;
+        text-indent: 0pt;
+        text-align: left;
+      "
+    >
+      C:\1-SudhaCIT\Cloud-2018 <span class="s4">2</span>
+    </p>
+    <p
+      class="s5"
+      style="
+        padding-left: 125pt;
+        text-indent: 0pt;
+        line-height: 41pt;
+        text-align: center;
+      "
+    >
+      Virtualization
+    </p>
+    <p
+      class="s6"
+      style="
+        padding-top: 9pt;
+        padding-left: 23pt;
+        text-indent: 72pt;
+        line-height: 125%;
+        text-align: justify;
+      "
+    >
+      Virtualization technology is the process of creating a virtual platform
+      with the aid of virtualization software. These software acts as a layer
+      between the primary system and the secondary system or virtual systems. It
+      allows the virtual system to access the resources of the primary system
+      such as RAM,
+    </p>
+    <p
+      class="s6"
+      style="
+        padding-top: 4pt;
+        padding-left: 23pt;
+        text-indent: 0pt;
+        text-align: justify;
+      "
+    >
+      ROM, Storage, CPU, Network etc.
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p style="padding-left: 113pt; text-indent: 0pt; text-align: left">
+      <span
+        ><img
+          width="573"
+          height="347"
+          alt="virtualization architectures"
+          title="virtualization architectures"
+          src="Unit%203-Intro-Virtualization_files/Image_001.jpg"
+      /></span>
+    </p>
+    <h2 style="padding-left: 152pt; text-indent: 0pt; text-align: center">
+      Figure 1. Traditional and Virtual Architecture
+    </h2>
+    <p
+      class="s2"
+      style="
+        padding-top: 5pt;
+        padding-left: 278pt;
+        text-indent: 0pt;
+        text-align: left;
+      "
+    >
+      C:\1-SudhaCIT\Cloud-2018 <span class="s4">3</span>
+    </p>
+    <p
+      class="s5"
+      style="
+        padding-left: 89pt;
+        text-indent: 0pt;
+        line-height: 41pt;
+        text-align: center;
+      "
+    >
+      Hypervisor
+    </p>
+    <ul id="l2">
+      <li>
+        <p
+          style="
+            padding-top: 15pt;
+            padding-left: 56pt;
+            text-indent: -27pt;
+            text-align: justify;
+          "
+        >
+          The hypervisor is a software that can virtualize the hardware
+          resources.
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 12pt;
+            padding-left: 56pt;
+            text-indent: -27pt;
+            line-height: 125%;
+            text-align: justify;
+          "
+        >
+          A <b>hypervisor </b>is a piece of software that enables a user to
+          create and run one or more virtual machines simultaneously.
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 4pt;
+            padding-left: 56pt;
+            text-indent: -27pt;
+            line-height: 125%;
+            text-align: justify;
+          "
+        >
+          These <b>virtual machines </b>are also referred as
+          <b>guest machines </b>and they all share the hardware of the physical
+          machine like memory, processor, storage and other related resources.
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 4pt;
+            padding-left: 56pt;
+            text-indent: -27pt;
+            line-height: 125%;
+            text-align: justify;
+          "
+        >
+          This improves and enhances the utilization of the underlying
+          resources. A hypervisor is also known as the
+          <b>virtual machine monitor (VMM)</b>.
+        </p>
+      </li>
+    </ul>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p
+      class="s2"
+      style="
+        padding-top: 4pt;
+        padding-left: 278pt;
+        text-indent: 0pt;
+        text-align: left;
+      "
+    >
+      C:\1-SudhaCIT\Cloud-2018 <span class="s4">4</span>
+    </p>
+    <p
+      class="s5"
+      style="
+        padding-left: 87pt;
+        text-indent: 0pt;
+        line-height: 41pt;
+        text-align: center;
+      "
+    >
+      Hypervisor (Contd…)
+    </p>
+    <ul id="l3">
+      <li>
+        <p
+          style="
+            padding-top: 15pt;
+            padding-left: 44pt;
+            text-indent: -27pt;
+            line-height: 125%;
+            text-align: left;
+          "
+        >
+          The hypervisor isolates the operating systems from the primary host
+          machine.
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 4pt;
+            padding-left: 44pt;
+            text-indent: -27pt;
+            line-height: 125%;
+            text-align: left;
+          "
+        >
+          The job of a hypervisor is to cater to the needs of a guest operating
+          system and to manage it efficiently.
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 4pt;
+            padding-left: 44pt;
+            text-indent: -27pt;
+            text-align: left;
+          "
+        >
+          Each virtual machine is independent and do not interfere with each
+        </p>
+        <p
+          style="
+            padding-top: 7pt;
+            padding-left: 44pt;
+            text-indent: 0pt;
+            text-align: left;
+          "
+        >
+          another although they run on the same host machine.
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 12pt;
+            padding-left: 44pt;
+            text-indent: -27pt;
+            text-align: left;
+          "
+        >
+          They are no way connected to one another.
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 12pt;
+            padding-left: 44pt;
+            text-indent: -27pt;
+            line-height: 125%;
+            text-align: left;
+          "
+        >
+          Even at times one of the virtual machines crashes or faces any issues,
+          the other machines continue to perform normally.
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p
+          class="s2"
+          style="
+            padding-top: 13pt;
+            padding-left: 278pt;
+            text-indent: 0pt;
+            text-align: left;
+          "
+        >
+          C:\1-SudhaCIT\Cloud-2018 <span class="s4">5</span>
+        </p>
+        <p
+          class="s5"
+          style="
+            padding-left: 138pt;
+            text-indent: 0pt;
+            line-height: 41pt;
+            text-align: center;
+          "
+        >
+          Hypervisor (Contd…)
+        </p>
+        <p
+          class="s6"
+          style="
+            padding-top: 10pt;
+            padding-left: 17pt;
+            text-indent: 0pt;
+            line-height: 26pt;
+            text-align: justify;
+          "
+        >
+          There are two types of hypervisors:
+        </p>
+      </li>
+      <li>
+        <h2
+          style="
+            padding-top: 3pt;
+            padding-left: 44pt;
+            text-indent: -27pt;
+            line-height: 83%;
+            text-align: justify;
+          "
+        >
+          Type 1 Hypervisor:
+          <span class="s6"
+            >Hypervisors run directly on the system hardware – A “bare metal”
+            hypervisor that are deployed directly over the host&#39;s system
+            hardware without any underlying operating systems or software.
+            Example: Microsoft Hyper- V hypervisor, VMware ESXi, Citrix
+            XenServer.</span
+          >
+        </h2>
+      </li>
+      <li>
+        <h2
+          style="
+            padding-top: 4pt;
+            padding-left: 44pt;
+            text-indent: -27pt;
+            line-height: 83%;
+            text-align: justify;
+          "
+        >
+          Type 2 Hypervisor:
+          <span class="s6"
+            >Hypervisors run on a host operating system that provides
+            virtualization services, such as I/O device support and memory
+            management. Example: VirtualBox</span
+          >
+        </h2>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p style="padding-left: 82pt; text-indent: 0pt; text-align: left">
+          <span
+            ><img
+              width="673"
+              height="304"
+              alt="figure2"
+              title="figure2"
+              src="Unit%203-Intro-Virtualization_files/Image_002.gif"
+          /></span>
+        </p>
+        <h2
+          style="
+            padding-left: 146pt;
+            text-indent: 0pt;
+            line-height: 24pt;
+            text-align: center;
+          "
+        >
+          Figure 2. Type1 and Type2 Hypervisors
+        </h2>
+        <p
+          class="s2"
+          style="
+            padding-top: 3pt;
+            padding-left: 278pt;
+            text-indent: 0pt;
+            text-align: left;
+          "
+        >
+          C:\1-SudhaCIT\Cloud-2018 <span class="s4">6</span>
+        </p>
+        <p
+          class="s5"
+          style="
+            padding-left: 129pt;
+            text-indent: 0pt;
+            line-height: 41pt;
+            text-align: center;
+          "
+        >
+          Type 1 Hypervisor
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <h1
+          style="
+            padding-left: 23pt;
+            text-indent: 0pt;
+            line-height: 83%;
+            text-align: justify;
+          "
+        >
+          Type1 Virtualization
+          <span class="p"
+            >- sometimes also called bare-metal / hardware / embedded /native
+            hypervisor virtualization whereby the hypervisor runs direct on
+            server hardware to have better control on the hardware as well as
+            the guest OSes sitting on it. Its characteristics include:</span
+          >
+        </h1>
+        <ul id="l4">
+          <li>
+            <p
+              style="
+                padding-top: 1pt;
+                padding-left: 50pt;
+                text-indent: -27pt;
+                line-height: 29pt;
+                text-align: justify;
+              "
+            >
+              Offer better hardware resources like CPU, Memory, storage to VMs
+            </p>
+          </li>
+          <li>
+            <p
+              style="
+                padding-left: 50pt;
+                text-indent: -27pt;
+                line-height: 29pt;
+                text-align: justify;
+              "
+            >
+              Offer better performance to VM users
+            </p>
+          </li>
+          <li>
+            <p
+              style="
+                padding-top: 4pt;
+                padding-left: 50pt;
+                text-indent: -27pt;
+                line-height: 83%;
+                text-align: left;
+              "
+            >
+              Served as small / thin layer hypervisor minimizing overhead
+              required to operate the hypervisor itself - hence offer better
+              efficiency
+            </p>
+          </li>
+          <li>
+            <p style="padding-left: 50pt; text-indent: -27pt; text-align: left">
+              Higher availability &amp; security
+            </p>
+          </li>
+          <li>
+            <p
+              style="
+                padding-left: 50pt;
+                text-indent: -27pt;
+                line-height: 26pt;
+                text-align: left;
+              "
+            >
+              Examples include: VMware ESXi, Citrix XenSever, Microsoft Hyper-V,
+            </p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <p
+      style="
+        padding-left: 50pt;
+        text-indent: 0pt;
+        line-height: 26pt;
+        text-align: left;
+      "
+    >
+      Oracle VM Server on X86 etc.
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p
+      class="s2"
+      style="
+        padding-top: 4pt;
+        padding-left: 278pt;
+        text-indent: 0pt;
+        text-align: left;
+      "
+    >
+      C:\1-SudhaCIT\Cloud-2018 <span class="s4">7</span>
+    </p>
+    <p
+      class="s5"
+      style="
+        padding-left: 129pt;
+        text-indent: 0pt;
+        line-height: 41pt;
+        text-align: center;
+      "
+    >
+      Type 2 Hypervisor
+    </p>
+    <h1
+      style="
+        padding-top: 23pt;
+        padding-left: 5pt;
+        text-indent: 0pt;
+        line-height: 83%;
+        text-align: justify;
+      "
+    >
+      Type2 Virtualization
+      <span class="p"
+        >- sometimes also called software / hosted hypervisor virtualization
+        whereby the hypervisor runs on top of typical Operating System. Its
+        characteristics include:</span
+      >
+    </h1>
+    <ul id="l5">
+      <li>
+        <p
+          style="
+            padding-top: 5pt;
+            padding-left: 32pt;
+            text-indent: -27pt;
+            line-height: 83%;
+            text-align: justify;
+          "
+        >
+          Offer less hardware resources utilization as VMs need to go through
+          hypervisor software &amp; Operating System (i.e. dependent on the
+          Operating System for their operations)
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 1pt;
+            padding-left: 32pt;
+            text-indent: -27pt;
+            text-align: justify;
+          "
+        >
+          Slower performance compared to Type1 virtualization
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 4pt;
+            padding-left: 32pt;
+            text-indent: -27pt;
+            line-height: 83%;
+            text-align: justify;
+          "
+        >
+          Incurred overhead as the hypervisor is a software running on top of
+          Operating System - hence less efficiency
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 4pt;
+            padding-left: 32pt;
+            text-indent: -27pt;
+            line-height: 83%;
+            text-align: justify;
+          "
+        >
+          Lower availability &amp; security i.e. any problem on Operating System
+          will affect all the VMs - that&#39;s why normally recommended to run
+          at end client / PC / notebook
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 5pt;
+            padding-left: 32pt;
+            text-indent: -27pt;
+            line-height: 83%;
+            text-align: justify;
+          "
+        >
+          Examples include: VMware Workstation, VMware Player, Microsoft Virtual
+          PC, Oracle Virtual Box etc.
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p
+          class="s2"
+          style="
+            padding-top: 13pt;
+            padding-left: 278pt;
+            text-indent: 0pt;
+            text-align: left;
+          "
+        >
+          C:\1-SudhaCIT\Cloud-2018 <span class="s4">8</span>
+        </p>
+        <p
+          class="s5"
+          style="
+            padding-left: 146pt;
+            text-indent: 0pt;
+            line-height: 41pt;
+            text-align: center;
+          "
+        >
+          Full Virtualization
+        </p>
+      </li>
+      <li>
+        <p
+          class="s7"
+          style="
+            padding-top: 2pt;
+            padding-left: 32pt;
+            text-indent: -27pt;
+            line-height: 23pt;
+            text-align: justify;
+          "
+        >
+          Full virtualization provides support for unmodified guest operating
+          systems.
+        </p>
+      </li>
+      <li>
+        <p
+          class="s7"
+          style="
+            padding-top: 3pt;
+            padding-left: 32pt;
+            text-indent: -27pt;
+            line-height: 83%;
+            text-align: justify;
+          "
+        >
+          The term <span class="s8">unmodified </span>refers to operating system
+          kernels which have not been altered to run on a hypervisor and
+          therefore still execute privileged operations as though running in
+          ring 0 of the CPU.
+        </p>
+      </li>
+      <li>
+        <p
+          class="s7"
+          style="
+            padding-left: 32pt;
+            text-indent: -27pt;
+            line-height: 21pt;
+            text-align: left;
+          "
+        >
+          In this scenario, the hypervisor provides CPU emulation to handle and
+          modify privileged and
+        </p>
+        <p
+          class="s7"
+          style="
+            padding-left: 32pt;
+            text-indent: 0pt;
+            line-height: 21pt;
+            text-align: left;
+          "
+        >
+          protected CPU operations made by unmodified guest operating system
+          kernels.
+        </p>
+      </li>
+      <li>
+        <p
+          class="s7"
+          style="
+            padding-top: 3pt;
+            padding-left: 32pt;
+            text-indent: -27pt;
+            line-height: 83%;
+            text-align: left;
+          "
+        >
+          Unfortunately this emulation process requires both time and system
+          resources to operate resulting in inferior performance levels when
+          compared to those provided by par virtualization.
+        </p>
+        <h3 style="padding-left: 5pt; text-indent: 0pt; text-align: left">
+          Advantages
+        </h3>
+      </li>
+      <li>
+        <p
+          class="s7"
+          style="
+            padding-left: 32pt;
+            text-indent: -27pt;
+            line-height: 23pt;
+            text-align: left;
+          "
+        >
+          Full virtualization provides complete isolation of the virtual
+          machines.
+        </p>
+      </li>
+      <li>
+        <p
+          class="s7"
+          style="
+            padding-left: 32pt;
+            text-indent: -27pt;
+            line-height: 23pt;
+            text-align: left;
+          "
+        >
+          Operating systems can be installed without any modification.
+        </p>
+      </li>
+      <li>
+        <p
+          class="s7"
+          style="
+            padding-left: 32pt;
+            text-indent: -27pt;
+            line-height: 23pt;
+            text-align: left;
+          "
+        >
+          Provides near-native CPU and memory performance.
+        </p>
+      </li>
+      <li>
+        <p
+          class="s7"
+          style="
+            padding-left: 32pt;
+            text-indent: -27pt;
+            line-height: 21pt;
+            text-align: left;
+          "
+        >
+          It offers flexibility because many different operating systems and
+          versions from different vendors
+        </p>
+        <p
+          class="s7"
+          style="
+            padding-left: 32pt;
+            text-indent: 0pt;
+            line-height: 21pt;
+            text-align: left;
+          "
+        >
+          can be installed and run.
+        </p>
+      </li>
+      <li>
+        <p
+          class="s7"
+          style="
+            padding-left: 32pt;
+            text-indent: -27pt;
+            line-height: 23pt;
+            text-align: left;
+          "
+        >
+          Because the guest OS remains unmodified, migration and portability is
+          very easy.
+        </p>
+        <h3
+          style="
+            padding-left: 5pt;
+            text-indent: 0pt;
+            line-height: 23pt;
+            text-align: left;
+          "
+        >
+          Disadvantages
+        </h3>
+      </li>
+      <li>
+        <p
+          class="s7"
+          style="
+            padding-left: 32pt;
+            text-indent: -27pt;
+            line-height: 23pt;
+            text-align: left;
+          "
+        >
+          Requires the correct combination of hardware and software elements.
+        </p>
+      </li>
+      <li>
+        <p
+          class="s7"
+          style="
+            padding-top: 3pt;
+            padding-left: 32pt;
+            text-indent: -27pt;
+            line-height: 83%;
+            text-align: left;
+          "
+        >
+          Performance can be affected because of the trap-and-emulate techniques
+          of x86 protected instructions.
+        </p>
+        <h3 style="padding-left: 5pt; text-indent: 0pt; text-align: left">
+          Example : <span class="s7">VMware, Hyper-V</span>
+        </h3>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p
+          class="s2"
+          style="
+            padding-top: 4pt;
+            padding-left: 278pt;
+            text-indent: 0pt;
+            text-align: left;
+          "
+        >
+          C:\1-SudhaCIT\Cloud-2018 <span class="s4">9</span>
+        </p>
+        <p
+          class="s5"
+          style="
+            padding-left: 147pt;
+            text-indent: 0pt;
+            line-height: 41pt;
+            text-align: center;
+          "
+        >
+          Para Virtualization
+        </p>
+        <ul id="l6">
+          <li>
+            <p
+              class="s7"
+              style="
+                padding-top: 11pt;
+                padding-left: 38pt;
+                text-indent: -27pt;
+                line-height: 83%;
+                text-align: left;
+              "
+            >
+              Under paravirtualization the kernel of the guest operating system
+              is modified specifically to run on the hypervisor.
+            </p>
+          </li>
+          <li>
+            <p
+              class="s7"
+              style="
+                padding-top: 3pt;
+                padding-left: 38pt;
+                text-indent: -27pt;
+                line-height: 83%;
+                text-align: left;
+              "
+            >
+              This typically involves replacing any privileged operations that
+              will only run in ring 0 of the CPU with calls to the hypervisor
+              (known as <span class="s8">hypercalls</span>).
+            </p>
+          </li>
+          <li>
+            <p
+              class="s7"
+              style="
+                padding-left: 38pt;
+                text-indent: -27pt;
+                line-height: 23pt;
+                text-align: left;
+              "
+            >
+              The hypervisor in turn performs the task on behalf of the guest
+              kernel.
+            </p>
+          </li>
+          <li>
+            <p
+              class="s7"
+              style="
+                padding-top: 3pt;
+                padding-left: 38pt;
+                text-indent: -27pt;
+                line-height: 83%;
+                text-align: justify;
+              "
+            >
+              This typically limits support to open source operating systems
+              such as Linux which may be freely altered and proprietary
+              operating systems where the owners have agreed to make the
+              necessary code modifications to target a specific hypervisor.
+            </p>
+          </li>
+          <li>
+            <p
+              class="s9"
+              style="
+                padding-top: 4pt;
+                padding-left: 38pt;
+                text-indent: -27pt;
+                line-height: 83%;
+                text-align: justify;
+              "
+            >
+              <span class="s7"
+                >These issues not withstanding, the ability of the guest kernel
+                to communicate directly with the hypervisor results in greater
+                performance levels than other virtualization approaches.</span
+              >
+            </p>
+            <h3
+              style="
+                padding-left: 11pt;
+                text-indent: 0pt;
+                line-height: 23pt;
+                text-align: left;
+              "
+            >
+              Advantages
+            </h3>
+          </li>
+          <li>
+            <p
+              class="s7"
+              style="
+                padding-left: 38pt;
+                text-indent: -27pt;
+                line-height: 23pt;
+                text-align: left;
+              "
+            >
+              Easier to implement than full virtualization where no hardware
+              assistance is available.
+            </p>
+          </li>
+          <li>
+            <p
+              class="s7"
+              style="
+                padding-left: 38pt;
+                text-indent: -27pt;
+                line-height: 23pt;
+                text-align: left;
+              "
+            >
+              Greater performance because overheads from emulation are reduced.
+            </p>
+            <h3
+              style="
+                padding-left: 11pt;
+                text-indent: 0pt;
+                line-height: 23pt;
+                text-align: left;
+              "
+            >
+              Disadvantages
+            </h3>
+          </li>
+          <li>
+            <p
+              class="s7"
+              style="
+                padding-left: 38pt;
+                text-indent: -27pt;
+                line-height: 23pt;
+                text-align: left;
+              "
+            >
+              Modifcation required for the guest OS
+            </p>
+          </li>
+          <li>
+            <p
+              class="s7"
+              style="
+                padding-left: 38pt;
+                text-indent: -27pt;
+                line-height: 23pt;
+                text-align: left;
+              "
+            >
+              The modifcation of the guest OS results in poor portability and
+              compatibility.
+            </p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h3
+      style="
+        padding-left: 11pt;
+        text-indent: 0pt;
+        line-height: 23pt;
+        text-align: left;
+      "
+    >
+      Example: <span class="s7">Citrix-XEN Server</span>
+    </h3>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p
+      class="s2"
+      style="
+        padding-top: 4pt;
+        padding-left: 278pt;
+        text-indent: 0pt;
+        text-align: left;
+      "
+    >
+      C:\1-SudhaCIT\Cloud-2018 <span class="s4">10</span>
+    </p>
+  </body>
+</html>

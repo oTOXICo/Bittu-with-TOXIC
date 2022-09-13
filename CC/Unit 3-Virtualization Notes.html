@@ -1,0 +1,3456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Unit 3-Virtualization Notes</title>
+    <meta name="author" content="Sudha" />
+    <style type="text/css">
+      * {
+        margin: 10%;
+        padding: 0;
+        text-indent: 0;
+      }
+      .h3,
+      h3 {
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 11pt;
+      }
+      .p,
+      p {
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 11pt;
+        margin: 0pt;
+      }
+      .s1 {
+        color: black;
+        font-family: Calibri, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 11pt;
+      }
+      .s2 {
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 11pt;
+      }
+      .s3 {
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 11pt;
+      }
+      h1 {
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 14pt;
+      }
+      h2 {
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: underline;
+        font-size: 13pt;
+      }
+      .s4 {
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: italic;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 11pt;
+      }
+      .s5 {
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 13pt;
+      }
+      .s6 {
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: underline;
+        font-size: 14pt;
+      }
+      .s7 {
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: underline;
+        font-size: 11pt;
+      }
+      .a {
+        color: #1154cc;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: underline;
+        font-size: 11pt;
+      }
+      .s8 {
+        color: #1154cc;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 11pt;
+      }
+      li {
+        display: block;
+      }
+      #l1 {
+        padding-left: 0pt;
+        counter-reset: c1 1;
+      }
+      #l1 > li > *:first-child:before {
+        counter-increment: c1;
+        content: counter(c1, decimal) ". ";
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 11pt;
+      }
+      #l1 > li:first-child > *:first-child:before {
+        counter-increment: c1 0;
+      }
+      li {
+        display: block;
+      }
+      #l2 {
+        padding-left: 0pt;
+        counter-reset: d1 8;
+      }
+      #l2 > li > *:first-child:before {
+        counter-increment: d1;
+        content: counter(d1, decimal) ". ";
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 11pt;
+      }
+      #l2 > li:first-child > *:first-child:before {
+        counter-increment: d1 0;
+      }
+      #l3 {
+        padding-left: 0pt;
+        counter-reset: d2 1;
+      }
+      #l3 > li > *:first-child:before {
+        counter-increment: d2;
+        content: counter(d2, lower-latin) ". ";
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 11pt;
+      }
+      #l3 > li:first-child > *:first-child:before {
+        counter-increment: d2 0;
+      }
+      #l4 {
+        padding-left: 0pt;
+        counter-reset: d2 1;
+      }
+      #l4 > li > *:first-child:before {
+        counter-increment: d2;
+        content: counter(d2, lower-latin) ". ";
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 11pt;
+      }
+      #l4 > li:first-child > *:first-child:before {
+        counter-increment: d2 0;
+      }
+      #l5 {
+        padding-left: 0pt;
+        counter-reset: d2 1;
+      }
+      #l5 > li > *:first-child:before {
+        counter-increment: d2;
+        content: counter(d2, lower-latin) ". ";
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 11pt;
+      }
+      #l5 > li:first-child > *:first-child:before {
+        counter-increment: d2 0;
+      }
+      li {
+        display: block;
+      }
+      #l6 {
+        padding-left: 0pt;
+      }
+      #l6 > li > *:first-child:before {
+        content: "● ";
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 11pt;
+      }
+      #l7 {
+        padding-left: 0pt;
+      }
+      #l7 > li > *:first-child:before {
+        content: "● ";
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 11pt;
+      }
+      #l8 {
+        padding-left: 0pt;
+      }
+      #l8 > li > *:first-child:before {
+        content: "○ ";
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 11pt;
+      }
+      table,
+      tbody {
+        vertical-align: top;
+        overflow: visible;
+      }
+    </style>
+  </head>
+  <body>
+    <h3
+      style="
+        padding-top: 3pt;
+        padding-left: 7pt;
+        text-indent: 0pt;
+        text-align: left;
+      "
+    >
+      VIRTUALIZATION
+    </h3>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <h3 style="padding-left: 7pt; text-indent: 0pt; text-align: left">
+      Syllabus :
+    </h3>
+    <h3
+      style="
+        padding-top: 2pt;
+        padding-left: 7pt;
+        text-indent: 0pt;
+        line-height: 114%;
+        text-align: left;
+      "
+    >
+      Understanding Virtualization, History, Leveraging Blade Servers, Server
+      Virtualization, Desktop Virtualization, Virtual Networks, Data Storage
+      Virtualization. (7)
+    </h3>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <ol id="l1">
+      <li>
+        <p style="padding-left: 25pt; text-indent: -18pt; text-align: left">
+          What is virtualization ?
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 2pt;
+            padding-left: 25pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          Cloud computing vs virtualization?
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 1pt;
+            padding-left: 25pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          Why do we need virtualization?
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 1pt;
+            padding-left: 25pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          Disadvantages of virtualization
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 1pt;
+            padding-left: 25pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          Common/Major types of virtualization - overview
+        </p>
+      </li>
+    </ol>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p style="padding-left: 13pt; text-indent: 0pt; text-align: left">
+      Diff btw Hardware virtualization and Hardware emulation
+    </p>
+    <ol id="l2">
+      <li>
+        <p
+          style="
+            padding-top: 1pt;
+            padding-left: 25pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          Types of cloud OS used in virtualized data centre
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 1pt;
+            padding-left: 25pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          Examples of impact of virtualization on cloud services
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 1pt;
+            padding-left: 25pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          Virtualization vs Containerization
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 2pt;
+            padding-left: 25pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          Nested virtualization
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 1pt;
+            padding-left: 25pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          Desktop virtualization
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 1pt;
+            padding-left: 25pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          Software virtualization
+        </p>
+        <ol id="l3">
+          <li>
+            <p
+              style="
+                padding-top: 1pt;
+                padding-left: 28pt;
+                text-indent: -21pt;
+                text-align: left;
+              "
+            >
+              Types
+            </p>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 1pt;
+            padding-left: 25pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          Memory virtualization
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 2pt;
+            padding-left: 25pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          Storage virtualization
+        </p>
+        <ol id="l4">
+          <li>
+            <p
+              style="
+                padding-top: 1pt;
+                padding-left: 28pt;
+                text-indent: -21pt;
+                text-align: left;
+              "
+            >
+              Types
+            </p>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 1pt;
+            padding-left: 25pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          Data virtualization
+        </p>
+        <ol id="l5">
+          <li>
+            <p
+              style="
+                padding-top: 1pt;
+                padding-left: 28pt;
+                text-indent: -21pt;
+                text-align: left;
+              "
+            >
+              Types
+            </p>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 1pt;
+            padding-left: 25pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          Network virtualization
+        </p>
+      </li>
+    </ol>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p
+      style="
+        padding-left: 5pt;
+        text-indent: 0pt;
+        line-height: 4pt;
+        text-align: left;
+      "
+    >
+      <span
+        ><img
+          width="625"
+          height="6"
+          alt="image"
+          src="Unit%203-Virtualization%20Notes_files/Image_001.png"
+      /></span>
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p style="text-indent: 0pt; text-align: left">
+      <span
+        ><img
+          width="143"
+          height="10"
+          alt="image"
+          src="Unit%203-Virtualization%20Notes_files/Image_002.png"
+      /></span>
+    </p>
+    <p class="s1" style="text-indent: 0pt; text-align: right">Page 1</p>
+    <h3
+      style="
+        padding-top: 3pt;
+        padding-left: 7pt;
+        text-indent: 0pt;
+        text-align: justify;
+      "
+    >
+      What is Virtualization ?
+    </h3>
+    <p
+      style="
+        padding-top: 2pt;
+        padding-left: 7pt;
+        text-indent: 0pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      Virtualization is a Software which creates “separated” multiple images of
+      the hardware and software on the same machine. This makes possible to
+      install multiple OS, multiple software and multiple applications on the
+      same physical machine.
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <h3 style="padding-left: 7pt; text-indent: 0pt; text-align: justify">
+      Cloud Computing vs Virtualization
+    </h3>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <table
+      style="border-collapse: collapse; margin-left: 7.044pt"
+      cellspacing="0"
+    >
+      <tr style="height: 23pt">
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p style="text-indent: 0pt; text-align: left"><br /></p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s2"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Cloud Computing
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s2"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Virtualization
+          </p>
+        </td>
+      </tr>
+      <tr style="height: 23pt">
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p style="text-indent: 0pt; text-align: left"><br /></p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p style="text-indent: 0pt; text-align: left"><br /></p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p style="text-indent: 0pt; text-align: left"><br /></p>
+        </td>
+      </tr>
+      <tr style="height: 48pt">
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 5pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Scalability
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Cloud can be extended as much as you want
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              padding-right: 3pt;
+              text-indent: 0pt;
+              text-align: justify;
+            "
+          >
+            Virtual machines configuration limits its scalability
+          </p>
+        </td>
+      </tr>
+      <tr style="height: 36pt">
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 5pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Setup
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              padding-right: 3pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Setting up the cloud is a very tedious task.
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            It is very simple to setup virtual environment.
+          </p>
+        </td>
+      </tr>
+      <tr style="height: 74pt">
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 5pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Flexibility
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              padding-right: 3pt;
+              text-indent: 0pt;
+              text-align: justify;
+            "
+          >
+            It is very flexible for user access. A user can access its cloud
+            from any location with internet (depending upon permission).
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              padding-right: 3pt;
+              text-indent: 0pt;
+              text-align: justify;
+            "
+          >
+            Proper authentication is required before accessing the virtual
+            machines.
+          </p>
+        </td>
+      </tr>
+      <tr style="height: 23pt">
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 5pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Service type
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            IaaS
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            SaaS
+          </p>
+        </td>
+      </tr>
+      <tr style="height: 36pt">
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 5pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Hardware
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Multiple hardware creates cloud computing
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              padding-right: 3pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Dedicated hardware required for multiple virtual machines
+          </p>
+        </td>
+      </tr>
+      <tr style="height: 61pt">
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 5pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Integration
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              padding-right: 3pt;
+              text-indent: 0pt;
+              text-align: justify;
+            "
+          >
+            Cloud integration allows future expansion of Users, applications
+            etc.
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              padding-right: 3pt;
+              text-indent: 0pt;
+              text-align: justify;
+            "
+          >
+            Virtualization integration allows expansion of new machines within
+            the same infrastructure.
+          </p>
+        </td>
+      </tr>
+      <tr style="height: 36pt">
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 5pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Dependency
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              padding-right: 3pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Multiple users can access the network using the same link.
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              padding-right: 3pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Multiple OS can be installed on single server/computer
+          </p>
+        </td>
+      </tr>
+      <tr style="height: 48pt">
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 5pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Accessibility
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              padding-right: 3pt;
+              text-indent: 0pt;
+              text-align: justify;
+            "
+          >
+            Can be accessed from all over the world. (Internet- based cloud)
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              padding-right: 4pt;
+              text-indent: 0pt;
+              text-align: justify;
+            "
+          >
+            Proper permissions are required for accessing from outside the
+            network.
+          </p>
+        </td>
+      </tr>
+      <tr style="height: 48pt">
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 5pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Recovery
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              padding-right: 3pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Not depend upon one machine.
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              padding-right: 3pt;
+              text-indent: 0pt;
+              text-align: justify;
+            "
+          >
+            Single machine failure can bring done multiple virtual machines.
+          </p>
+        </td>
+      </tr>
+      <tr style="height: 36pt">
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 5pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Types
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Private Cloud and Public Cloud
+          </p>
+        </td>
+        <td
+          style="
+            width: 156pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              padding-right: 13pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Hardware Virtualization and Application Virtualization
+          </p>
+        </td>
+      </tr>
+    </table>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p
+      style="
+        padding-left: 5pt;
+        text-indent: 0pt;
+        line-height: 4pt;
+        text-align: left;
+      "
+    >
+      <span
+        ><img
+          width="625"
+          height="6"
+          alt="image"
+          src="Unit%203-Virtualization%20Notes_files/Image_003.png"
+      /></span>
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p style="text-indent: 0pt; text-align: left">
+      <span
+        ><img
+          width="143"
+          height="10"
+          alt="image"
+          src="Unit%203-Virtualization%20Notes_files/Image_004.png"
+      /></span>
+    </p>
+    <p class="s1" style="text-indent: 0pt; text-align: right">Page 2</p>
+    <h3
+      style="
+        padding-top: 3pt;
+        padding-left: 7pt;
+        text-indent: 0pt;
+        text-align: justify;
+      "
+    >
+      History of Virtualization :
+    </h3>
+    <p
+      style="
+        padding-top: 2pt;
+        padding-left: 7pt;
+        text-indent: 35pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      Although virtualization has,over the past few years,become one of the
+      hottest topics in computing,it’s not a new idea.IBM,more than 30 years ago
+      had a virtual operating system that allowed a mainframe computer to run
+      multiple copies of the same or different operating systems.Further,most
+      operating systems support virtual memory that combines random access
+      memory(RAM) and a page file on disk to create the illusion that a
+      process(a running program) has much more physical RAM than is present in
+      the computer.Windows,linux, Mac OS and other operating systems all support
+      Virtual memory.
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <h3 style="padding-left: 7pt; text-indent: 0pt; text-align: justify">
+      Leveraging Blade Servers :
+    </h3>
+    <p
+      style="
+        padding-top: 2pt;
+        padding-left: 7pt;
+        text-indent: 35pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      For years,when users demands required additional servers,the IT department
+      would add a physical server box within the data center. Although the
+      server bos met user demands,each box consumed space within the data center
+      and required considerable power.
+    </p>
+    <p
+      style="
+        padding-left: 7pt;
+        text-indent: 0pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      As the server boxes were outgrowing many data centers, the blade server
+      was born. In short,the blade server is a scaled-down server designed to
+      consume less power and to fit within a rack with other blade servers,
+      while still matching or exceeding the processing potential of
+      chassis-based servers.
+    </p>
+    <p
+      style="
+        padding-left: 7pt;
+        text-indent: 35pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      To share disk space,blade servers support network-attached storage(NAS)
+      devices.Additional advantages of blade servers include the following:
+    </p>
+    <ul id="l6">
+      <li>
+        <p
+          style="
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 13pt;
+            text-align: left;
+          "
+        >
+          Consume less physical space (footprint)
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 1pt;
+            padding-left: 43pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          Consume less power.
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 2pt;
+            padding-left: 43pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          Generate less heat and are easier to cool.
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 1pt;
+            padding-left: 43pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          Easy to install and configure.
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p style="padding-left: 106pt; text-indent: 0pt; text-align: left">
+          <span
+            ><img
+              width="490"
+              height="320"
+              alt="image"
+              src="Unit%203-Virtualization%20Notes_files/Image_005.jpg"
+          /></span>
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p
+          style="
+            padding-left: 5pt;
+            text-indent: 0pt;
+            line-height: 4pt;
+            text-align: left;
+          "
+        >
+          <span
+            ><img
+              width="625"
+              height="6"
+              alt="image"
+              src="Unit%203-Virtualization%20Notes_files/Image_006.png"
+          /></span>
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p style="text-indent: 0pt; text-align: left">
+          <span
+            ><img
+              width="143"
+              height="10"
+              alt="image"
+              src="Unit%203-Virtualization%20Notes_files/Image_007.png"
+          /></span>
+        </p>
+        <p class="s1" style="text-indent: 0pt; text-align: right">Page 3</p>
+        <h3
+          style="
+            padding-top: 3pt;
+            padding-left: 7pt;
+            text-indent: 0pt;
+            text-align: left;
+          "
+        >
+          Need for Virtualization :
+        </h3>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <ul id="l7">
+          <li>
+            <p style="padding-left: 79pt; text-indent: -18pt; text-align: left">
+              Increased device utilization(particularly CPU Utilization).
+            </p>
+          </li>
+          <li>
+            <p
+              style="
+                padding-top: 1pt;
+                padding-left: 79pt;
+                text-indent: -18pt;
+                text-align: left;
+              "
+            >
+              Decreased device footprint.
+            </p>
+          </li>
+          <li>
+            <p
+              style="
+                padding-top: 1pt;
+                padding-left: 79pt;
+                text-indent: -18pt;
+                text-align: left;
+              "
+            >
+              Decreased power consumption.
+            </p>
+          </li>
+          <li>
+            <p
+              style="
+                padding-top: 1pt;
+                padding-left: 79pt;
+                text-indent: -18pt;
+                text-align: left;
+              "
+            >
+              Simplified operating system and application administration.
+            </p>
+          </li>
+          <li>
+            <p
+              style="
+                padding-top: 1pt;
+                padding-left: 79pt;
+                text-indent: -18pt;
+                text-align: left;
+              "
+            >
+              Ease of software provisioning and patch releases.
+            </p>
+          </li>
+          <li>
+            <p
+              style="
+                padding-top: 1pt;
+                padding-left: 79pt;
+                text-indent: -18pt;
+                text-align: left;
+              "
+            >
+              Device and storage scalability.
+            </p>
+          </li>
+          <li>
+            <p
+              style="
+                padding-top: 1pt;
+                padding-left: 79pt;
+                text-indent: -18pt;
+                text-align: left;
+              "
+            >
+              Increased user access to key resources.
+            </p>
+          </li>
+          <li>
+            <p
+              style="
+                padding-top: 1pt;
+                padding-left: 79pt;
+                text-indent: -18pt;
+                text-align: left;
+              "
+            >
+              Increased flexibility in supporting multiple operating system
+              environments.
+            </p>
+          </li>
+          <li>
+            <p
+              style="
+                padding-top: 1pt;
+                padding-left: 79pt;
+                text-indent: -18pt;
+                text-align: left;
+              "
+            >
+              Improved use and management of software licences.
+            </p>
+          </li>
+          <li>
+            <p
+              style="
+                padding-top: 1pt;
+                padding-left: 79pt;
+                text-indent: -18pt;
+                text-align: left;
+              "
+            >
+              Improved utilization reporting, which leads to improved capacity
+              planning.
+            </p>
+          </li>
+          <li>
+            <p
+              style="
+                padding-top: 2pt;
+                padding-left: 79pt;
+                text-indent: -18pt;
+                text-align: left;
+              "
+            >
+              Improved disaster recovery and business continuity.
+            </p>
+            <p style="text-indent: 0pt; text-align: left"><br /></p>
+            <h3 style="padding-left: 7pt; text-indent: 0pt; text-align: left">
+              Disadvantages of Virtualization:
+            </h3>
+            <p style="text-indent: 0pt; text-align: left"><br /></p>
+          </li>
+          <li>
+            <p
+              style="
+                padding-left: 79pt;
+                text-indent: -18pt;
+                line-height: 114%;
+                text-align: left;
+              "
+            >
+              New staff or staff training may be required to understand the
+              virtualization process.
+            </p>
+          </li>
+          <li>
+            <p
+              style="
+                padding-left: 79pt;
+                text-indent: -18pt;
+                line-height: 13pt;
+                text-align: left;
+              "
+            >
+              Not all applications are well suited for virtualization.
+            </p>
+          </li>
+          <li>
+            <p
+              style="
+                padding-top: 1pt;
+                padding-left: 79pt;
+                text-indent: -18pt;
+                line-height: 114%;
+                text-align: left;
+              "
+            >
+              The virtualization process adds slight overhead, which will make
+              some applications run more slowly
+            </p>
+            <p style="text-indent: 0pt; text-align: left"><br /></p>
+            <p style="text-indent: 0pt; text-align: left"><br /></p>
+            <p
+              style="
+                padding-left: 5pt;
+                text-indent: 0pt;
+                line-height: 4pt;
+                text-align: left;
+              "
+            >
+              <span
+                ><img
+                  width="625"
+                  height="6"
+                  alt="image"
+                  src="Unit%203-Virtualization%20Notes_files/Image_008.png"
+              /></span>
+            </p>
+            <p style="text-indent: 0pt; text-align: left"><br /></p>
+            <p style="text-indent: 0pt; text-align: left">
+              <span
+                ><img
+                  width="143"
+                  height="10"
+                  alt="image"
+                  src="Unit%203-Virtualization%20Notes_files/Image_009.png"
+              /></span>
+            </p>
+            <p class="s1" style="text-indent: 0pt; text-align: right">Page 4</p>
+            <h1
+              style="
+                padding-top: 3pt;
+                padding-left: 7pt;
+                text-indent: 0pt;
+                text-align: justify;
+              "
+            >
+              Types of Virtualization :
+            </h1>
+            <p style="text-indent: 0pt; text-align: left"><br /></p>
+            <p style="padding-left: 10pt; text-indent: 0pt; text-align: left">
+              <span
+                ><img
+                  width="615"
+                  height="210"
+                  alt="Virtualization in cloud computing"
+                  title="Virtualization in cloud computing"
+                  src="Unit%203-Virtualization%20Notes_files/Image_010.jpg"
+              /></span>
+            </p>
+            <p style="text-indent: 0pt; text-align: left"><br /></p>
+            <h2
+              style="
+                padding-top: 13pt;
+                padding-left: 7pt;
+                text-indent: 0pt;
+                text-align: justify;
+              "
+            >
+              Hardware/Server Virtualization
+            </h2>
+            <p
+              class="s4"
+              style="
+                padding-top: 6pt;
+                padding-left: 7pt;
+                text-indent: 35pt;
+                line-height: 114%;
+                text-align: justify;
+              "
+            >
+              Hardware virtualization
+              <span class="p">or platform </span>virtualization
+              <span class="p"
+                >refers to the creation of a virtual machine that acts like a
+                real computer with an operating system. Software executed on
+                these virtual machines is separated from the underlying </span
+              >hardware <span class="p">resources.</span>
+            </p>
+            <p
+              style="
+                padding-left: 7pt;
+                text-indent: 35pt;
+                line-height: 114%;
+                text-align: justify;
+              "
+            >
+              In hardware virtualization, the <i>host machine </i>is the machine
+              which is used by the virtualization and the
+              <i>guest machine </i>is the virtual machine. The words
+              <i>host </i>and <i>guest </i>are used to distinguish the software
+              that runs on the physical machine from the software that runs on
+              the virtual machine. The software or firmware that creates a
+              virtual machine on the host hardware is called a
+              <i>hypervisor </i>or <i>virtual machine monitor</i>.
+            </p>
+            <p
+              style="
+                padding-left: 7pt;
+                text-indent: 35pt;
+                line-height: 114%;
+                text-align: justify;
+              "
+            >
+              With virtualization, several operating systems can be run in
+              parallel on a single central processing unit (CPU). This
+              parallelism tends to reduce overhead costs and differs from
+              multitasking, which involves running several programs on the same
+              OS.
+            </p>
+            <p
+              style="
+                padding-left: 7pt;
+                text-indent: 35pt;
+                line-height: 114%;
+                text-align: justify;
+              "
+            >
+              Using virtualization, an enterprise can better manage updates and
+              rapid changes to the operating system and applications without
+              disrupting the user.
+            </p>
+            <p style="text-indent: 0pt; text-align: left"><br /></p>
+            <p style="padding-left: 7pt; text-indent: 0pt; text-align: left">
+              Hardware virtualization is further subdivided into the following
+              types:
+            </p>
+            <p style="text-indent: 0pt; text-align: left"><br /></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p
+          style="
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 114%;
+            text-align: left;
+          "
+        >
+          Full Virtualization – Complete simulation of the actual hardware takes
+          place to allow software to run an unmodified guest OS.
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 114%;
+            text-align: left;
+          "
+        >
+          Para Virtualization – In this type of virtualization, software
+          unmodified runs in modified OS as a separate system.
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 114%;
+            text-align: left;
+          "
+        >
+          Partial Virtualization – In this type of hardware virtualization, the
+          software may need modification to run.
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p
+          style="
+            padding-left: 5pt;
+            text-indent: 0pt;
+            line-height: 4pt;
+            text-align: left;
+          "
+        >
+          <span
+            ><img
+              width="625"
+              height="6"
+              alt="image"
+              src="Unit%203-Virtualization%20Notes_files/Image_011.png"
+          /></span>
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p style="text-indent: 0pt; text-align: left">
+          <span
+            ><img
+              width="143"
+              height="10"
+              alt="image"
+              src="Unit%203-Virtualization%20Notes_files/Image_012.png"
+          /></span>
+        </p>
+        <p class="s1" style="text-indent: 0pt; text-align: right">Page 5</p>
+        <h2
+          style="
+            padding-top: 3pt;
+            padding-left: 7pt;
+            text-indent: 0pt;
+            text-align: justify;
+          "
+        >
+          Network Virtualization
+        </h2>
+        <p
+          style="
+            padding-top: 6pt;
+            padding-left: 7pt;
+            text-indent: 35pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          Network virtualization combines all physical networking equipment into
+          a single, software-based resource. It also divides available bandwidth
+          into multiple, independent channels, each of which can be assigned to
+          servers and devices in real time.
+        </p>
+        <p
+          style="
+            padding-left: 7pt;
+            text-indent: 35pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          With the distributed channels, network speed will increase
+          dramatically, allowing us to deliver services and applications faster
+          than ever before.
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p
+          style="
+            padding-left: 7pt;
+            text-indent: 35pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          Management and monitoring of a computer network as a single managerial
+          entity from a single software-based administrator’s console. It is
+          intended to allow network optimization of data transfer rates,
+          scalability, reliability, flexibility, and security. It also automates
+          many network administrative tasks. Network virtualization is
+          specifically useful for networks that experience a huge, rapid, and
+          unpredictable traffic increase.
+        </p>
+        <p
+          style="
+            padding-left: 7pt;
+            text-indent: 35pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          The intended result of network virtualization provides improved
+          network productivity and efficiency.
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p style="padding-left: 7pt; text-indent: 0pt; text-align: justify">
+          Two categories:
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+      </li>
+      <li>
+        <p style="padding-left: 43pt; text-indent: -18pt; text-align: left">
+          Internal: Provide network like functionality to a single system.
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 1pt;
+            padding-left: 43pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          External: Combine many networks, or parts of networks into a virtual
+          unit.
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <h2 style="padding-left: 7pt; text-indent: 0pt; text-align: justify">
+          Storage Virtualization
+        </h2>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 4pt;
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          Storage virtualization is the pooling of physical storage from
+          multiple storage devices into what appears to be a single storage
+          device that is managed from a central console. The technology relies
+          on software to identify available storage capacity from physical
+          devices and to then aggregate that capacity as a pool of storage that
+          can be used in a virtual environment by virtual machines (VMs).
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          The virtual storage software intercepts I/O requests from physical or
+          virtual machines and sends those requests to the appropriate physical
+          location of the storage devices that are part of the overall pool of
+          storage in the virtualized environment. To the user, virtual storage
+          appears like a standard read or write to a physical drive.
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          Even a RAID array can sometimes be considered a type of storage
+          virtualization. Multiple physical disks in the array are presented to
+          the user as a single storage device that, in the background,
+          replicates data to multiple disks in case of a single disk failure.
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p
+          style="
+            padding-left: 5pt;
+            text-indent: 0pt;
+            line-height: 4pt;
+            text-align: left;
+          "
+        >
+          <span
+            ><img
+              width="625"
+              height="6"
+              alt="image"
+              src="Unit%203-Virtualization%20Notes_files/Image_013.png"
+          /></span>
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p style="text-indent: 0pt; text-align: left">
+          <span
+            ><img
+              width="143"
+              height="10"
+              alt="image"
+              src="Unit%203-Virtualization%20Notes_files/Image_014.png"
+          /></span>
+        </p>
+        <p class="s1" style="text-indent: 0pt; text-align: right">Page 6</p>
+        <p
+          class="s5"
+          style="
+            padding-top: 3pt;
+            padding-left: 7pt;
+            text-indent: 0pt;
+            text-align: left;
+          "
+        >
+          Types of storage virtualization
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p style="padding-left: 7pt; text-indent: 0pt; text-align: left">
+          There are two basic methods of virtualizing storage:
+          <b>file-based or block-based.</b>
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+      </li>
+      <li>
+        <h3
+          style="
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          File-based
+          <span class="p"
+            >storage virtualization is a specific use case, applied to
+            network-attached storage (NAS) systems. Using the Server Message
+            Block (SMB) or Network File System (NFS) protocols, file-based
+            storage virtualization breaks the dependency in a normal NAS array
+            between the data being accessed and the location of physical memory.
+            This enables the NAS system to better handle file migration in the
+            background to improve performance.</span
+          >
+        </h3>
+      </li>
+      <li>
+        <h3
+          style="
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          Block-based
+          <span class="p"
+            >or block access virtual storage is more widely applied in virtual
+            storage systems than file-based storage virtualization. Block-based
+            systems abstract the logical storage, such as a drive partition,
+            from the actual physical memory blocks in a storage device, such as
+            a hard disk drive (HDD) or solid-state memory device. This enables
+            the virtualization management software to collect the capacity of
+            the available blocks of memory space and pool them into a shared
+            resource to be assigned to any number of VMs, bare-metal servers or
+            containers.</span
+          >
+        </h3>
+        <ul id="l8">
+          <li>
+            <p
+              style="
+                padding-left: 79pt;
+                text-indent: -18pt;
+                line-height: 114%;
+                text-align: justify;
+              "
+            >
+              An early version of block-based virtualization was IBM&#39;s SAN
+              Volume Controller (SVC), now called IBM Spectrum Virtualize. The
+              software runs on an appliance or storage array and creates a
+              single pool of storage by virtualizing logical unit numbers (LUNs)
+              attached to servers connected to storage controllers. Spectrum
+              Virtualize also enables customers to tier block data to public
+              cloud storage.
+            </p>
+          </li>
+        </ul>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p
+          class="s5"
+          style="padding-left: 7pt; text-indent: 0pt; text-align: left"
+        >
+          Virtualization methods
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p
+          style="
+            padding-left: 43pt;
+            text-indent: 0pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          Storage virtualization today usually refers to capacity that is
+          accumulated from multiple physical devices and then made available to
+          be reallocated in a virtualized environment. Modern IT methodologies,
+          such as hyper-converged infrastructure (HCI), take advantage of
+          virtual storage, in addition to virtual compute power and often
+          virtual network capacity.
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p style="padding-left: 7pt; text-indent: 0pt; text-align: left">
+          There are multiple ways storage can be applied to a virtualized
+          environment:
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+      </li>
+      <li>
+        <h3
+          style="
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          Host-based storage virtualization
+          <span class="p"
+            >is seen in HCI systems and cloud storage. In this case, the host,
+            or a hyper-converged system made up of multiple hosts, presents
+            virtual drives of a set capacity to the guest machines, whether they
+            are VMs in an enterprise environment or PCs accessing cloud storage.
+            All of the virtualization and management are done at the host level
+            via software, and the physical storage can be almost any device or
+            array.</span
+          >
+        </h3>
+      </li>
+      <li>
+        <h3
+          style="
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          Array-based storage virtualization
+          <span class="p"
+            >most commonly refers to the method in which a storage array
+            presents different types of physical storage for use as storage
+            tiers. How much of a storage tier is made up of solid-state drives
+            (SSDs) or HDDs is handled by software in the array and is hidden at
+            the guest machine or user level.</span
+          >
+        </h3>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p
+          style="
+            padding-left: 5pt;
+            text-indent: 0pt;
+            line-height: 4pt;
+            text-align: left;
+          "
+        >
+          <span
+            ><img
+              width="625"
+              height="6"
+              alt="image"
+              src="Unit%203-Virtualization%20Notes_files/Image_015.png"
+          /></span>
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p style="text-indent: 0pt; text-align: left">
+          <span
+            ><img
+              width="143"
+              height="10"
+              alt="image"
+              src="Unit%203-Virtualization%20Notes_files/Image_016.png"
+          /></span>
+        </p>
+        <p class="s1" style="text-indent: 0pt; text-align: right">Page 7</p>
+      </li>
+      <li>
+        <h3
+          style="
+            padding-top: 3pt;
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          Network-based storage virtualization
+          <span class="p"
+            >is the most common form used in enterprises today. A network
+            device, such as a smart switch or purpose-built server, connects to
+            all storage devices in a Fibre Channel (FC) storage area network
+            (SAN) and presents the storage as a virtual pool.</span
+          >
+        </h3>
+      </li>
+      <li>
+        <p
+          style="
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          Storage virtualization disguises the actual complexity of a storage
+          system, such as a SAN, which helps a storage administrator perform the
+          tasks of backup, archiving and recovery more easily and in less time.
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <h2 style="padding-left: 7pt; text-indent: 0pt; text-align: left">
+          Memory Virtualization
+        </h2>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 4pt;
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          Virtual memory virtualization is similar to the virtual memory support
+          provided by modern operating systems.
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          In a traditional execution environment, the operating system maintains
+          mappings of virtual memory to machine memory using page tables, which
+          is a one-stage mapping from virtual memory to machine memory.
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          All modern x86 CPUs include a memory management unit (MMU) and a
+          translation lookaside buffer (TLB) to optimize virtual memory
+          performance.
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          However, in a virtual execution environment, virtual memory
+          virtualization involves sharing the physical system memory in RAM and
+          dynamically allocating it to the physical memory of the VMs. That
+          means a two-stage mapping process should be maintained by the guest OS
+          and the VMM, respectively: virtual memory to physical memory and
+          physical memory to machine memory.
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 13pt;
+            text-align: justify;
+          "
+        >
+          MMU virtualization should be supported, which is transparent to the
+          guest OS.
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 1pt;
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          The guest OS continues to control the mapping of virtual addresses to
+          the physical memory addresses of VMs. But the guest OS cannot directly
+          access the actual machine memory.
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          The VMM is responsible for mapping the guest physical memory to the
+          actual machine memory.
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p
+          style="
+            padding-left: 5pt;
+            text-indent: 0pt;
+            line-height: 4pt;
+            text-align: left;
+          "
+        >
+          <span
+            ><img
+              width="625"
+              height="6"
+              alt="image"
+              src="Unit%203-Virtualization%20Notes_files/Image_017.png"
+          /></span>
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p style="text-indent: 0pt; text-align: left">
+          <span
+            ><img
+              width="143"
+              height="10"
+              alt="image"
+              src="Unit%203-Virtualization%20Notes_files/Image_018.png"
+          /></span>
+        </p>
+        <p class="s1" style="text-indent: 0pt; text-align: right">Page 8</p>
+        <p style="padding-left: 7pt; text-indent: 0pt; text-align: left">
+          <span
+            ><img
+              width="643"
+              height="336"
+              alt="image"
+              src="Unit%203-Virtualization%20Notes_files/Image_019.png"
+          /></span>
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <p
+          class="s6"
+          style="
+            padding-top: 4pt;
+            padding-left: 7pt;
+            text-indent: 0pt;
+            text-align: left;
+          "
+        >
+          Software Virtualization
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 4pt;
+            padding-left: 43pt;
+            text-indent: -18pt;
+            line-height: 114%;
+            text-align: justify;
+          "
+        >
+          Software Virtualization allows the single computer server to run one
+          or more virtual environments. It is quite similar to virtualizations
+          but here it abstracts the software installation procedure and creates
+          a virtual software out of it.
+        </p>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+        <h1 style="padding-left: 7pt; text-indent: 0pt; text-align: left">
+          Types of Software Virtualization
+        </h1>
+        <p style="text-indent: 0pt; text-align: left"><br /></p>
+      </li>
+      <li>
+        <p style="padding-left: 43pt; text-indent: -18pt; text-align: left">
+          Operating System Virtualization
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 2pt;
+            padding-left: 43pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          Application Virtualization
+        </p>
+      </li>
+      <li>
+        <p
+          style="
+            padding-top: 1pt;
+            padding-left: 43pt;
+            text-indent: -18pt;
+            text-align: left;
+          "
+        >
+          Service Virtualization
+        </p>
+      </li>
+    </ul>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <h1 style="padding-left: 7pt; text-indent: 0pt; text-align: left">
+      Operating System Virtualization
+    </h1>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p
+      style="
+        padding-left: 7pt;
+        text-indent: 0pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      In operating system virtualization, the hardware is used which consists of
+      software on which different operating systems work. Here, the operating
+      system does not interfere with each other so that each one of them works
+      efficiently.
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p
+      style="
+        padding-left: 5pt;
+        text-indent: 0pt;
+        line-height: 4pt;
+        text-align: left;
+      "
+    >
+      <span
+        ><img
+          width="625"
+          height="6"
+          alt="image"
+          src="Unit%203-Virtualization%20Notes_files/Image_020.png"
+      /></span>
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p style="text-indent: 0pt; text-align: left">
+      <span
+        ><img
+          width="143"
+          height="10"
+          alt="image"
+          src="Unit%203-Virtualization%20Notes_files/Image_021.png"
+      /></span>
+    </p>
+    <p class="s1" style="text-indent: 0pt; text-align: right">Page 9</p>
+    <h1
+      style="
+        padding-top: 3pt;
+        padding-left: 7pt;
+        text-indent: 0pt;
+        text-align: justify;
+      "
+    >
+      Application Virtualization
+    </h1>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p
+      style="
+        padding-left: 7pt;
+        text-indent: 0pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      Application virtualization is a technology, encapsulates the computer
+      program within the operating system. It can say that application
+      virtualizations refer to running an application on a thin client. This
+      thin client runs an environment, which is different from what refer to as
+      encapsulating from the operating system which is the location of it.
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <h1 style="padding-left: 7pt; text-indent: 0pt; text-align: justify">
+      Service Virtualization
+    </h1>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p
+      style="
+        padding-left: 7pt;
+        text-indent: 0pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      In the service virtualization, the DevOps team can use the virtual servers
+      rather than the physical one. It emulates the behaviour of essential
+      components which will be present in the final production environment. With
+      the help of service virtualization, the complex application can go through
+      testing much earlier in the development process. It can say that service
+      visualization is a technique to simulate the behaviour of some components
+      in a mixture of component-based applications
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <h2 style="padding-left: 7pt; text-indent: 0pt; text-align: justify">
+      Data Virtualization
+    </h2>
+    <p
+      style="
+        padding-top: 6pt;
+        padding-left: 7pt;
+        text-indent: 0pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      Data virtualization is an umbrella term used to describe any approach to
+      data management that allows an application to retrieve and manipulate data
+      without requiring technical details about the data, such as how it is
+      formatted or where it is physically located.
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <h2 style="padding-left: 7pt; text-indent: 0pt; text-align: justify">
+      Desktop virtualization
+    </h2>
+    <p
+      style="
+        padding-top: 6pt;
+        padding-left: 7pt;
+        text-indent: 0pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      Desktop virtualization is the concept of isolating a logical operating
+      system (OS) instance from the client that is used to access it.
+    </p>
+    <p
+      style="
+        padding-left: 7pt;
+        text-indent: 0pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      There are several different conceptual models of desktop virtualization,
+      which can broadly be divided into two categories based on whether or not
+      the operating system instance is executed locally or remotely. It is
+      important to note that not all forms of desktop virtualization technology
+      involve the use of virtual machines (VMs).
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <h2 style="padding-left: 7pt; text-indent: 0pt; text-align: justify">
+      Types of desktop virtualization technologies
+    </h2>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p
+      class="s7"
+      style="
+        padding-top: 4pt;
+        padding-left: 7pt;
+        text-indent: 0pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      Host-based<span class="h3"> </span
+      ><span class="p"
+        >forms of desktop virtualization require that users view and interact
+        with their virtual desktops over a network by using a remote display
+        protocol. Because processing takes place in a data center, client
+        devices can be traditional PCs, but also thin clients, zero clients,
+        smartphones and tablets. Examples of host-based desktop virtualization
+        technology include:</span
+      >
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p
+      style="
+        padding-left: 5pt;
+        text-indent: 0pt;
+        line-height: 4pt;
+        text-align: left;
+      "
+    >
+      <span
+        ><img
+          width="625"
+          height="6"
+          alt="image"
+          src="Unit%203-Virtualization%20Notes_files/Image_022.png"
+      /></span>
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p style="text-indent: 0pt; text-align: left">
+      <span
+        ><img
+          width="143"
+          height="10"
+          alt="image"
+          src="Unit%203-Virtualization%20Notes_files/Image_023.png"
+      /></span>
+    </p>
+    <p class="s1" style="text-indent: 0pt; text-align: right">Page 10</p>
+    <h3
+      style="
+        padding-top: 3pt;
+        padding-left: 7pt;
+        text-indent: 0pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      Host-based virtual machines<span class="p"
+        >: Each user connects to an individual VM that is hosted in a data
+        center. The user may connect to the same VM every time, allowing for
+        personalization (known as a persistent desktop), or be given a fresh VM
+        at each login (a nonpersistent desktop).</span
+      >
+    </h3>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <h3
+      style="
+        padding-left: 7pt;
+        text-indent: 0pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      Shared hosted<span class="p"
+        >: Users connect to a shared desktop that runs on a server. Microsoft
+        Remote Desktop Services, formerly Terminal Services, takes this
+        client-server approach. Users may also connect to individual
+        applications running on a server; this technology is an example of
+        application virtualization.</span
+      >
+    </h3>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <h3
+      style="
+        padding-left: 7pt;
+        text-indent: 0pt;
+        line-height: 115%;
+        text-align: justify;
+      "
+    >
+      Host-based physical machines:
+      <span class="p"
+        >The operating system runs directly on another device&#39;s physical
+        hardware.</span
+      >
+    </h3>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p
+      class="s7"
+      style="
+        padding-left: 7pt;
+        text-indent: 0pt;
+        line-height: 115%;
+        text-align: justify;
+      "
+    >
+      Client virtualization<span class="h3"> </span
+      ><span class="p"
+        >requires processing to occur on local hardware; the use of thin
+        clients, zero clients and mobile devices is not possible.</span
+      >
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p style="padding-left: 7pt; text-indent: 0pt; text-align: justify">
+      These types of desktop virtualization include:
+    </p>
+    <h3
+      style="
+        padding-top: 1pt;
+        padding-left: 7pt;
+        text-indent: 0pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      OS image streaming:
+      <a
+        href="https://whatis.techtarget.com/definition/disk-image"
+        style="
+          color: black;
+          font-family: Arial, sans-serif;
+          font-style: normal;
+          font-weight: normal;
+          text-decoration: none;
+          font-size: 11pt;
+        "
+        target="_blank"
+        >The operating system runs on local hardware, but it boots to a remote </a
+      ><a
+        href="https://whatis.techtarget.com/definition/disk-image"
+        class="a"
+        target="_blank"
+        >disk </a
+      ><span
+        style="
+          color: #1154cc;
+          font-family: Arial, sans-serif;
+          font-style: normal;
+          font-weight: normal;
+          text-decoration: underline;
+          font-size: 11pt;
+        "
+        >image</span
+      ><span class="s8"> </span
+      ><span class="p"
+        >across the network. This is useful for groups of desktops that use the
+        same disk image. OS image streaming, also known as remote desktop
+        virtualization, requires a constant network connection in order to
+        function.</span
+      >
+    </h3>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <h3
+      style="
+        padding-left: 7pt;
+        text-indent: 0pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      Client-based virtual machines:
+      <a
+        href="https://searchservervirtualization.techtarget.com/definition/hypervisor"
+        style="
+          color: black;
+          font-family: Arial, sans-serif;
+          font-style: normal;
+          font-weight: normal;
+          text-decoration: none;
+          font-size: 11pt;
+        "
+        target="_blank"
+        >A VM runs on a fully functional PC, with a </a
+      ><a
+        href="https://searchservervirtualization.techtarget.com/definition/hypervisor"
+        class="a"
+        target="_blank"
+        >hypervisor</a
+      ><span class="s8"> </span
+      ><a
+        href="https://whatis.techtarget.com/definition/server"
+        style="
+          color: black;
+          font-family: Arial, sans-serif;
+          font-style: normal;
+          font-weight: normal;
+          text-decoration: none;
+          font-size: 11pt;
+        "
+        target="_blank"
+        >in place. Client-based virtual machines can be managed by regularly
+        syncing the disk image with a </a
+      ><span
+        style="
+          color: #1154cc;
+          font-family: Arial, sans-serif;
+          font-style: normal;
+          font-weight: normal;
+          text-decoration: underline;
+          font-size: 11pt;
+        "
+        >server</span
+      ><span class="p"
+        >, but a constant network connection is not necessary in order for them
+        to function.</span
+      >
+    </h3>
+    <p style="padding-left: 7pt; text-indent: 0pt; text-align: left">.</p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <h3 style="padding-left: 7pt; text-indent: 0pt; text-align: justify">
+      Virtualization vs Containerization
+    </h3>
+    <p
+      style="
+        padding-top: 1pt;
+        padding-left: 7pt;
+        text-indent: 35pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      Containerization is a specific type of hardware virtualization.
+      Containerization has emerged as an alternative to a traditional kind of
+      virtualization that uses hypervisors to split physical resources into
+      virtual machines.
+    </p>
+    <p
+      style="
+        padding-left: 7pt;
+        text-indent: 35pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      Instead of creating virtual machines and partitioning hardware resources
+      that way, containerization seeks to construct various data containers at
+      an operating system level. That means the containers will share an
+      operating system, unlike virtual machines, each of which has a cloned
+      operating system to itself.
+    </p>
+    <p
+      style="
+        padding-left: 7pt;
+        text-indent: 35pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      In some cases, containerization can be a more accessible or easy form of
+      virtualization. It can be easier to set up the containers than to try to
+      split resources like CPU and memory between many virtual machines.
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p
+      style="
+        padding-left: 5pt;
+        text-indent: 0pt;
+        line-height: 4pt;
+        text-align: left;
+      "
+    >
+      <span
+        ><img
+          width="625"
+          height="6"
+          alt="image"
+          src="Unit%203-Virtualization%20Notes_files/Image_024.png"
+      /></span>
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p style="text-indent: 0pt; text-align: left">
+      <span
+        ><img
+          width="143"
+          height="10"
+          alt="image"
+          src="Unit%203-Virtualization%20Notes_files/Image_025.png"
+      /></span>
+    </p>
+    <p class="s1" style="text-indent: 0pt; text-align: right">Page 11</p>
+    <p
+      style="
+        padding-top: 3pt;
+        padding-left: 7pt;
+        text-indent: 35pt;
+        line-height: 114%;
+        text-align: left;
+      "
+    >
+      Containerization tools like Docker assist managers in creating container
+      virtualization systems.
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <table
+      style="border-collapse: collapse; margin-left: 7.044pt"
+      cellspacing="0"
+    >
+      <tr style="height: 23pt">
+        <td
+          style="
+            width: 234pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s2"
+            style="
+              padding-top: 4pt;
+              padding-left: 41pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Virtualization
+          </p>
+        </td>
+        <td
+          style="
+            width: 234pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s2"
+            style="
+              padding-top: 4pt;
+              padding-left: 41pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Containerization
+          </p>
+        </td>
+      </tr>
+      <tr style="height: 23pt">
+        <td
+          style="
+            width: 234pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 5pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Represents hardware-level virtualization
+          </p>
+        </td>
+        <td
+          style="
+            width: 234pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Represents operating systems virtualization
+          </p>
+        </td>
+      </tr>
+      <tr style="height: 23pt">
+        <td
+          style="
+            width: 234pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 5pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Heavy weight
+          </p>
+        </td>
+        <td
+          style="
+            width: 234pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Lightweight
+          </p>
+        </td>
+      </tr>
+      <tr style="height: 23pt">
+        <td
+          style="
+            width: 234pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 5pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Slow Provisioning
+          </p>
+        </td>
+        <td
+          style="
+            width: 234pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Real-time provisioning and scalability
+          </p>
+        </td>
+      </tr>
+      <tr style="height: 23pt">
+        <td
+          style="
+            width: 234pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 5pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Limited performance
+          </p>
+        </td>
+        <td
+          style="
+            width: 234pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Native performance
+          </p>
+        </td>
+      </tr>
+      <tr style="height: 23pt">
+        <td
+          style="
+            width: 234pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 5pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Fully isolated and hence more secure
+          </p>
+        </td>
+        <td
+          style="
+            width: 234pt;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s3"
+            style="
+              padding-top: 4pt;
+              padding-left: 4pt;
+              text-indent: 0pt;
+              text-align: left;
+            "
+          >
+            Process-level isolation and hence less secure
+          </p>
+        </td>
+      </tr>
+    </table>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <h3
+      style="
+        padding-top: 4pt;
+        padding-left: 7pt;
+        text-indent: 0pt;
+        text-align: justify;
+      "
+    >
+      Cloud OS for Virtualized Data centres
+    </h3>
+    <p
+      style="
+        padding-top: 2pt;
+        padding-left: 7pt;
+        text-indent: 30pt;
+        line-height: 114%;
+        text-align: justify;
+      "
+    >
+      Data centers must be virtualized to serve as cloud providers. There are
+      four Virtual Infrastructure (VI) managers and OSes are specially tailored
+      for virtualizing data centers which often own a large number of servers in
+      clusters. Nimbus, Eucalyptus,OpenNebula, vSphere 4
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p style="padding-left: 25pt; text-indent: 0pt; text-align: left">
+      <span
+        ><img
+          width="556"
+          height="297"
+          alt="image"
+          src="Unit%203-Virtualization%20Notes_files/Image_026.jpg"
+      /></span>
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p
+      style="
+        padding-left: 5pt;
+        text-indent: 0pt;
+        line-height: 4pt;
+        text-align: left;
+      "
+    >
+      <span
+        ><img
+          width="625"
+          height="6"
+          alt="image"
+          src="Unit%203-Virtualization%20Notes_files/Image_027.png"
+      /></span>
+    </p>
+    <p style="text-indent: 0pt; text-align: left"><br /></p>
+    <p style="text-indent: 0pt; text-align: left">
+      <span
+        ><img
+          width="143"
+          height="10"
+          alt="image"
+          src="Unit%203-Virtualization%20Notes_files/Image_028.png"
+      /></span>
+    </p>
+    <p class="s1" style="text-indent: 0pt; text-align: right">Page 12</p>
+  </body>
+</html>
